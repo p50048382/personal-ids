@@ -1,0 +1,57 @@
+<div class="container row m-0 mt-3">
+    <form (ngSubmit)="onSubmit()" #panForm="ngForm" class="w-100">
+
+    <!-- PAN Card number -->
+    <mat-form-field class="col-md-6 col-lg-6 col-sm-12" appearance="legacy">
+        <mat-label>PAN Number</mat-label>
+        <input matInput [disabled]='formDisabled' ngModel name="Idnum"  class="text-dark" placeholder="Enter..."
+         [ngModel]="user_pancard?.IdNum">
+    </mat-form-field>
+    <!-- Name as on PAN -->
+    <mat-form-field class="col-md-6 col-lg-6 col-sm-12" appearance="legacy">
+        <mat-label>Name as on PAN</mat-label>
+        <input matInput [disabled]='formDisabled' ngModel name="Nmid" 
+        [ngModel]=" user_pancard?.Nmid" class="text-dark" placeholder="Enter...">
+    </mat-form-field>
+
+    <div class="col-md-12 col-lg-12 col-sm-12 mb-2" [ngStyle]="{'display': formDisabled?'none':'' }">
+        <label for="fileUpload" class="text-dark mr-3" >Upload File:</label>
+        <input type="file"  [disabled]='formDisabled' ngModel  name="fileUpload" class=" fileUpload" placeholder="Placeholder" 
+        #fileUpload="ngModel"
+        [ngClass]="{
+            'p-0':true,
+            'col-md-6':true,
+            'col-lg-6':true,
+            'col-sm-12':true,
+            'text-dark': true,
+            'fileUpload':!formDisabled}"
+        required
+        >
+    </div>
+    <mat-action-row class="col-md-12 col-lg-12 col-sm-12 p-0 border-0">
+        <button mat-stroked-button 
+        [ngStyle]="{'display': formDisabled?'block':'none'}" 
+        type="button" (click)="onEdit()" color="primary">Edit</button>
+
+        <button mat-stroked-button 
+        [ngStyle]="{'backgroundColor':'darkslategray','display': formDisabled?'none':'block'}" 
+        type="submit"
+        class="text-white"
+        >Save</button>
+
+        <button mat-stroked-button 
+         [ngStyle]="{'display': formDisabled?'none':'block'}" type="button"
+          (click)="disableControls()" color="warn">Cancel</button>
+      </mat-action-row>
+
+      <div class="text-dark">
+        <b>Notes:</b>
+    <p>
+        
+    1. Any change to PAN Card will be validated by SSO HR Operations Team. Kindly attach a scanned PAN card copy while adding the PAN details. <br>
+    2. In case PAN details are not updated, no basic exemption will be granted on taxable income and the tax rate will be double.
+    </p>
+    </div>
+    
+    </form>
+</div>

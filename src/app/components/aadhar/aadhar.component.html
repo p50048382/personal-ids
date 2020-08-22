@@ -1,0 +1,78 @@
+<div class="container row m-0 mt-3">
+
+    <form (ngSubmit)="onSubmit()" #aadharForm="ngForm" class="w-100">
+    <!-- Aadhar number -->
+    <mat-form-field class="col-md-6 col-lg-6 col-sm-12" appearance="legacy">
+        <mat-label>Aadhar Number</mat-label>
+        <input matInput [disabled]='formDisabled' ngModel name="Idnum" type="number" class="text-dark" placeholder="Enter..." [ngModel]="user_aadhar?.Idnum">
+    </mat-form-field>
+    <!-- Name -->
+    <mat-form-field class="col-md-6 col-lg-6 col-sm-12" appearance="legacy">
+        <mat-label>Name as on Aadhar</mat-label>
+        <input matInput [disabled]='formDisabled' ngModel name="Uidnm" [ngModel]=" user_aadhar?.Uidnm"class="text-dark" placeholder="Enter...">
+    </mat-form-field>
+    <!-- Date of Birth -->
+    <mat-form-field class="col-md-6 col-lg-6 col-sm-12" appearance="legacy">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [disabled]='formDisabled' ngModel name="Dob" [ngModel]="user_aadhar?.Dob"  class="text-dark" placeholder="Enter here ...">
+    </mat-form-field>
+    <!-- Gender -->
+    <mat-form-field class="col-md-6 col-lg-6 col-sm-12" appearance="legacy">
+        <mat-label>Gender</mat-label>
+        <input [disabled]='formDisabled' matInput ngModel name="gender" [ngModel]="user_aadhar?.gender" class="text-dark" placeholder="Enter...">
+    </mat-form-field>
+        <div class="col-md-12 col-lg-12 col-sm-12 mb-2" [ngStyle]="{'display': formDisabled?'none':'' }">
+            <label for="fileUpload" class="text-dark mr-3" >Upload File:</label>
+            <input type="file"  [disabled]='formDisabled' ngModel  name="fileUpload" class=" fileUpload" placeholder="Placeholder" 
+            #fileUpload="ngModel"
+            [ngClass]="{
+                'p-0':true,
+                'col-md-6':true,
+                'col-lg-6':true,
+                'col-sm-12':true,
+                'text-dark': true,
+                'fileUpload':!formDisabled}"
+            required
+            >
+        </div>
+
+    <mat-action-row class="col-md-12 col-lg-12 col-sm-12 p-0 border-0">
+        <button mat-stroked-button 
+        [ngStyle]="{'display': formDisabled?'block':'none'}" 
+        type="button" (click)="onEdit()" color="primary">Edit</button>
+
+        <button mat-stroked-button 
+        [ngStyle]="{
+            'backgroundColor':'darkslategray',
+            'display': formDisabled?'none':'block'
+        }" 
+        type="submit"
+        >Save</button>
+
+        <button mat-stroked-button 
+         [ngStyle]="{'display': formDisabled?'none':'block'}" type="button"
+          (click)="disableControls()" color="warn">Cancel</button>
+      </mat-action-row>
+      <!-- Spinner -->
+    <ngx-spinner
+    bdColor="rgba(142, 195, 195,0.4)"
+    size="small"
+    [fullScreen]="false" 
+    color="darkslategrey"
+    type="line-scale-party"
+>
+    <p style="font-size: 20px; color:darkslategrey">Loading...</p>
+    </ngx-spinner>
+    <div class="text-dark">
+        <b>Guidelines:</b>
+    <p>
+        1. Enter Name exactly same as printed on Aadhaar Card. <br>
+        2. If details on Aadhaar card is wrong then please get it corrected. Visit
+        <a target="_blank" href="https://uidai.gov.in/">UIDAI website</a>. <br>
+        3. For any change regarding Aadhar Card Number, contact your HRBP.
+    </p>
+    </div>
+    
+    </form>
+
+</div>

@@ -1,0 +1,80 @@
+
+<div class="container">
+
+    <mat-accordion class="example-headers-align">
+        <mat-expansion-panel class="text-white" [expanded]="step === 0" (opened)="setStep(0)" >
+        <!-- <mat-expansion-panel class="text-white" [expanded]="true" (opened)="setStep(0)" > -->
+          <mat-expansion-panel-header style="background-color: darkslategray;" class="border-bottom">
+            <mat-panel-title class="text-white">
+              Aadhar Card
+            </mat-panel-title>
+            <mat-panel-description class="text-white center-elements">
+              <mat-icon class="text-white">folder_shared</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <app-aadhar></app-aadhar>
+        
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" >
+        <!-- <mat-expansion-panel [expanded]="true" (opened)="setStep(1)" > -->
+          <mat-expansion-panel-header style="background-color: darkslategrey;" class="border-bottom">
+            <mat-panel-title class="text-white">
+              Passport
+            </mat-panel-title>
+            <mat-panel-description class="text-white center-elements">
+              <mat-icon>folder_shared</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <app-passport></app-passport>
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" >
+          <mat-expansion-panel-header class="border-bottom" style="background-color: darkslategrey;">
+            <mat-panel-title class="text-white">
+              PAN Card
+            </mat-panel-title>
+            <mat-panel-description class="text-white center-elements">
+              <mat-icon class="text-white">folder_shared</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <app-pan></app-pan>
+        </mat-expansion-panel>
+      
+      </mat-accordion>
+      
+    
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <app-aadhar></app-aadhar>
+<app-pan></app-pan>
+<app-passport></app-passport> -->
+<!-- <div class="container center-elements mb-5" > 
+  <mat-button-toggle-group class="row " style="width:100%;"  name="fontStyle" aria-label="Font Style" >
+
+      <mat-button-toggle class="col-md-2 col-lg-2 col-sm-12 p-0 " checked value="aadhar">Aadhar</mat-button-toggle>
+
+      <mat-button-toggle class="col-md-2 col-lg-2 col-sm-12  p-0" value="pan">PAN</mat-button-toggle>
+
+      <mat-button-toggle class="col-md-2 col-lg-2 col-sm-12 p-0 " value="passport">Passport</mat-button-toggle>
+
+      <mat-button-toggle class="col-md-2 col-lg-2 col-sm-12 p-0 " value="visa">Visa</mat-button-toggle>
+
+      <mat-button-toggle class="col-md-4 col-lg-4 col-sm-12 p-0 " value="license">Driving License</mat-button-toggle>
+
+    </mat-button-toggle-group>
+</div> -->

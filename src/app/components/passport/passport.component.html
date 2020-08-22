@@ -1,0 +1,57 @@
+<div class="container row m-0 mt-3">
+    <form (ngSubmit)="onSubmit()" #passportForm="ngForm" class="w-100">
+
+    <!-- Passport number -->
+    <mat-form-field class="col-md-6 col-lg-6 col-sm-12" appearance="legacy">
+        <mat-label>Passport Number</mat-label>
+        <input matInput [disabled]='formDisabled' ngModel name="Idnum" type="number" class="text-dark" placeholder="Enter..."
+         [ngModel]="user_passport?.PassNum">
+    </mat-form-field>
+    <!-- Issue Date -->
+    <mat-form-field class="col-md-6 col-lg-6 col-sm-12" appearance="legacy">
+        <mat-label>Issue Date</mat-label>
+        <input matInput [disabled]='formDisabled' ngModel name="Uidnm" 
+        [ngModel]=" user_passport?.IssDate|slice:6:19 | date: 'dd/MM/yyyy'" class="text-dark" placeholder="Enter...">
+    </mat-form-field>
+    <!-- Place of Issue -->
+    <mat-form-field class="col-md-6 col-lg-6 col-sm-12" appearance="legacy">
+        <mat-label>Place of Issue</mat-label>
+        <input [disabled]='formDisabled' matInput ngModel name="gender" [ngModel]="user_passport?.PlaceOfIss " class="text-dark" placeholder="Enter...">
+    </mat-form-field>
+    <!-- Expiry Date -->
+    <mat-form-field class="col-md-6 col-lg-6 col-sm-12" appearance="legacy">
+        <mat-label>Expiry Date</mat-label>
+        <input matInput [disabled]='formDisabled' ngModel name="Dob" 
+        [ngModel]="user_passport?.ExpDate |slice:6:19 | date: 'dd/MM/yyyy'"  class="text-dark" placeholder="Enter here ...">
+    </mat-form-field>
+    <div class="col-md-12 col-lg-12 col-sm-12 mb-2" [ngStyle]="{'display': formDisabled?'none':'' }">
+        <label for="fileUpload" class="text-dark mr-3" >Upload File:</label>
+        <input type="file"  [disabled]='formDisabled' ngModel  name="fileUpload" class=" fileUpload" placeholder="Placeholder" 
+        #fileUpload="ngModel"
+        [ngClass]="{
+            'p-0':true,
+            'col-md-6':true,
+            'col-lg-6':true,
+            'col-sm-12':true,
+            'text-dark': true,
+            'fileUpload':!formDisabled}"
+        required
+        >
+    </div>
+    <mat-action-row class="col-md-12 col-lg-12 col-sm-12 p-0 border-0">
+        <button mat-stroked-button 
+        [ngStyle]="{'display': formDisabled?'block':'none'}" 
+        type="button" (click)="onEdit()" color="primary">Edit</button>
+
+        <button mat-stroked-button 
+        [ngStyle]="{'backgroundColor':'darkslategray','display': formDisabled?'none':'block'}" 
+        type="submit"
+        class="text-white"
+        >Save</button>
+
+        <button mat-stroked-button 
+         [ngStyle]="{'display': formDisabled?'none':'block'}" type="button"
+          (click)="disableControls()" color="warn">Cancel</button>
+      </mat-action-row>
+    </form>
+</div>
