@@ -22,13 +22,13 @@
         <input [disabled]='formDisabled' matInput ngModel name="gender" [ngModel]="user_aadhar?.gender" class="text-dark" placeholder="Enter...">
     </mat-form-field>
         <div class="col-md-12 col-lg-12 col-sm-12 mb-2" [ngStyle]="{'display': formDisabled?'none':'' }">
-            <label for="fileUpload" class="text-dark mr-3" >Upload File:</label>
+            <label for="fileUpload" class="text-dark p-0  col-md-1 col-lg-1" >Upload File:</label>
             <input type="file"  [disabled]='formDisabled' ngModel  name="fileUpload" class=" fileUpload" placeholder="Placeholder" 
             #fileUpload="ngModel"
             [ngClass]="{
                 'p-0':true,
-                'col-md-6':true,
-                'col-lg-6':true,
+                'col-md-4':true,
+                'col-lg-4':true,
                 'col-sm-12':true,
                 'text-dark': true,
                 'fileUpload':!formDisabled}"
@@ -71,8 +71,7 @@
         <a target="_blank" href="https://uidai.gov.in/">UIDAI website</a>. <br>
         3. For any change regarding Aadhar Card Number, contact your HRBP.
     </p>
-    </div>
-    
+    </div>    
     </form>
-
 </div>
+
