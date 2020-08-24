@@ -43,8 +43,28 @@
          [ngStyle]="{'display': formDisabled?'none':'block'}" type="button"
           (click)="disableControls()" color="warn">Cancel</button>
       </mat-action-row>
-
-      <div class="text-dark">
+      <div class=" text-dark col-md-12 col-lg-12 col-sm-12 mb-3">
+        <label for="fileUpload" class=" p-0 col-md-auto col-lg-auto" >
+          <b>   Uploaded Files:</b>
+        </label>
+        <ul>
+            <li class="col-md-auto col-lg-auto p-0" *ngFor="let file of uploadedFiles;let i=index">
+                <a [href]="file.FileUrl" class="p-0 " target="_blank" rel="noopener noreferrer">
+                   {{file.FileName }} {{i+1}}
+                </a>
+                <!-- <mat-icon class="align-middle">attachment</mat-icon>  -->
+            </li>
+        </ul>
+    </div>
+    <ngx-spinner
+    bdColor="rgba(142, 195, 195,0.4)"
+    name="panCard"
+    size="small"
+    [fullScreen]="false" 
+    color="darkslategrey"
+    type="line-scale-party"
+></ngx-spinner>
+      <div class="text-dark"> 
         <b>Notes:</b>
     <p>
         
